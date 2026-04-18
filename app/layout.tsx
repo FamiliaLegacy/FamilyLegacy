@@ -28,8 +28,9 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Family Legacy Platform",
-  description: "Private research-grade genealogy platform for the Manning maternal family archive.",
+  title: "Family Legacy | Manning · Mestre · Belén",
+  description:
+    "A private genealogy platform tracing the Manning, Mestre, Belén, Echevarría, and López family lineages across Trinidad, Puerto Rico, Mississippi, and New York.",
 };
 
 export default function RootLayout({
