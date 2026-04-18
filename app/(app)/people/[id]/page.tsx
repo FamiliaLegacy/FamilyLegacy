@@ -175,7 +175,7 @@ export default async function PersonPage({ params }: { params: { id: string } })
           </CardHeader>
           <CardContent>
             <div className="relative space-y-5 before:absolute before:left-[9px] before:top-2 before:bottom-2 before:w-px before:bg-stone-200 dark:before:bg-stone-700">
-              {events.map((event: any) => (
+              {events.map((event: { id: string; event_type: string; event_date?: string; description?: string; confidence: string; place?: { name: string } }) => (
                 <div key={event.id} className="flex gap-4 pl-7 relative">
                   <div className="absolute left-0 top-[5px] h-[18px] w-[18px] rounded-full border-2 border-amber-400 bg-white dark:bg-stone-900 flex items-center justify-center">
                     <div className="h-1.5 w-1.5 rounded-full bg-amber-500" />
@@ -223,7 +223,8 @@ export default async function PersonPage({ params }: { params: { id: string } })
   );
 }
 
-function FamilySection({ label, people }: { label: string; people: any[] }) {
+interface FamilyMember { id: string; display_name: string; birth_date?: string }
+function FamilySection({ label, people }: { label: string; people: FamilyMember[] }) {
   return (
     <div>
       <p className="text-xs uppercase tracking-wide text-stone-400 dark:text-stone-500 mb-2">
@@ -231,7 +232,7 @@ function FamilySection({ label, people }: { label: string; people: any[] }) {
       </p>
       <div className="space-y-1">
         {people.map(
-          (p: any) =>
+          (p) =>
             p && (
               <Link
                 key={p.id}

@@ -63,7 +63,17 @@ export default async function PeoplePage() {
   );
 }
 
-function PersonCard({ person }: { person: any }) {
+interface Person {
+  id: string;
+  display_name: string;
+  birth_date?: string;
+  death_date?: string;
+  confidence: string;
+  is_anchor: boolean;
+  racial_status_historical?: string;
+}
+
+function PersonCard({ person }: { person: Person }) {
   const lifespan = [
     person.birth_date ? `b. ${person.birth_date}` : null,
     person.death_date ? `d. ${person.death_date}` : null,

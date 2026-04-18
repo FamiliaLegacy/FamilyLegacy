@@ -1,6 +1,15 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-export async function generateHistoricalContext(person: any, contextType: string): Promise<string> {
+interface PersonRecord {
+  first_name?: string;
+  last_name_paternal?: string;
+  birth_date?: string;
+  death_date?: string;
+  racial_status_historical?: string;
+  birth_place?: { name?: string; municipality?: string };
+}
+
+export async function generateHistoricalContext(person: PersonRecord, contextType: string): Promise<string> {
   if (!process.env.GEMINI_API_KEY) throw new Error("GEMINI_API_KEY is not configured");
 
   const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);

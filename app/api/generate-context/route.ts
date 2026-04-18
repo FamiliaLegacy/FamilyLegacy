@@ -39,8 +39,9 @@ export async function POST(req: NextRequest) {
     );
 
     return NextResponse.json({ content });
-  } catch (err: any) {
+  } catch (err) {
     console.error("Gemini error:", err);
-    return NextResponse.json({ error: err.message ?? "Generation failed" }, { status: 500 });
+    const message = err instanceof Error ? err.message : "Generation failed";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
