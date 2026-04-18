@@ -1,5 +1,5 @@
 create table ai_contexts (
-  id uuid primary key default uuid_generate_v4(),
+  id uuid primary key default gen_random_uuid(),
   person_id uuid not null references people(id) on delete cascade,
   context_type text not null,
   content text not null,

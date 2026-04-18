@@ -1,7 +1,5 @@
-create extension if not exists "uuid-ossp";
-
 create table places (
-  id uuid primary key default uuid_generate_v4(),
+  id uuid primary key default gen_random_uuid(),
   name text not null,
   municipality text,
   region text,
@@ -14,7 +12,7 @@ create table places (
 );
 
 create table people (
-  id uuid primary key default uuid_generate_v4(),
+  id uuid primary key default gen_random_uuid(),
   first_name text not null,
   middle_name text,
   last_name_paternal text,
@@ -43,7 +41,7 @@ create table people (
 );
 
 create table relationships (
-  id uuid primary key default uuid_generate_v4(),
+  id uuid primary key default gen_random_uuid(),
   person_a_id uuid not null references people(id),
   person_b_id uuid not null references people(id),
   relationship_type text not null check (relationship_type in (
@@ -65,7 +63,7 @@ create type document_type as enum (
 );
 
 create table documents (
-  id uuid primary key default uuid_generate_v4(),
+  id uuid primary key default gen_random_uuid(),
   title text not null,
   document_type document_type not null,
   document_date text,
@@ -87,7 +85,7 @@ create table documents (
 );
 
 create table document_people (
-  id uuid primary key default uuid_generate_v4(),
+  id uuid primary key default gen_random_uuid(),
   document_id uuid not null references documents(id) on delete cascade,
   person_id uuid not null references people(id) on delete cascade,
   role_in_document text,
@@ -95,7 +93,7 @@ create table document_people (
 );
 
 create table events (
-  id uuid primary key default uuid_generate_v4(),
+  id uuid primary key default gen_random_uuid(),
   person_id uuid references people(id),
   event_type text not null check (event_type in (
     'birth', 'baptism', 'marriage', 'death', 'residence',
@@ -113,7 +111,7 @@ create table events (
 );
 
 create table hypotheses (
-  id uuid primary key default uuid_generate_v4(),
+  id uuid primary key default gen_random_uuid(),
   title text not null,
   description text,
   hypothesis_type text check (hypothesis_type in (
@@ -130,7 +128,7 @@ create table hypotheses (
 );
 
 create table research_tasks (
-  id uuid primary key default uuid_generate_v4(),
+  id uuid primary key default gen_random_uuid(),
   title text not null,
   description text,
   status text check (status in ('todo', 'in_progress', 'done', 'blocked')) default 'todo',
