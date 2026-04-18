@@ -25,8 +25,8 @@ export default async function DashboardPage() {
       <div>
         <h1 className="font-serif text-4xl text-stone-900 dark:text-stone-100">Family Archive</h1>
         <p className="mt-2 max-w-2xl text-stone-600 dark:text-stone-400">
-          A private genealogy and document platform for reconstructing the Mestre, Belén,
-          Echevarría, López, and related maternal family lines.
+          A private genealogy platform tracing the Manning (Trinidad), Mestre (Ponce),
+          Belén, Echevarría, and López lineages — from the 1818 Guánica shoreline to today.
         </p>
       </div>
 

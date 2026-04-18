@@ -36,7 +36,7 @@ export function Sidebar() {
           Family Legacy
         </h1>
         <p className="mt-0.5 text-xs text-stone-500 dark:text-stone-500">
-          Mestre · Belén · Echevarría
+          Manning · Mestre · Belén · Echevarría
         </p>
       </div>
       <nav className="flex-1 space-y-0.5 px-3 py-4">

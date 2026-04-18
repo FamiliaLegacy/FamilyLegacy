@@ -7,7 +7,7 @@ export function Header() {
             Family Archive
           </p>
           <h2 className="mt-1 font-serif text-xl text-stone-900 dark:text-stone-100">
-            Puerto Rican Maternal Lineage
+            Manning · Mestre · Belén · López · Echevarría
           </h2>
         </div>
       </div>
